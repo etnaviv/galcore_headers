@@ -36,6 +36,13 @@
 
 // Interface structure has hardware type (core id)
 #define GCABI_HAS_HARDWARE_TYPE
+// Interface structure has "engine" field
+#define GCABI_HAS_ENGINE
+
+// Command buffers have physical address and size
+#define GCABI_CMDBUF_HAS_PHYSICAL
+// Command buffers have an explicit reserved tail
+#define GCABI_CMDBUF_HAS_RESERVED_TAIL
 
 // Chip identity has pixelPipes, instructionCount, numConstants, bufferSize
 #define GCABI_CHIPIDENTITY_EXT
@@ -44,8 +51,19 @@
 
 #define GCABI_UINT64_POINTERS
 #define GCABI_UINT64_IOCTL_DATA
+
+/* Became ReleaseVideoMemory */
 #define GCABI_NO_FREE_VIDEO_MEMORY
+/* Commits contain multiple command buffers */
 #define GCABI_MULTI_COMMIT
+/* Don't mmap but use gcvHAL_MAP_MEMORY */
+#define GCABI_NO_MMAP
+/* Use virtual command buffers, not contiguous memory */
+#define GCABI_VIRTUAL_COMMAND_BUFFERS
+
+/* Surface types */
+#define GCABI_HAS_SURF_ICACHE
+#define GCABI_HAS_SURF_TXDESC
 
 /* IOCTL structure for userspace driver*/
 typedef struct
